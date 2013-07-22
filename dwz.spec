@@ -1,6 +1,6 @@
 Summary:	DWARF optimization and duplicate removal tool
 Name:		dwz
-Version:	0.6
+Version:	0.11
 Release:	1
 License:	GPL v2+ and GPL v3+
 Group:		Development/Tools
@@ -9,7 +9,7 @@ Group:		Development/Tools
 #   | bzip2 -9 > %{name}-%{version}.tar.bz2
 # using fedora tarballs from http://pkgs.fedoraproject.org/repo/pkgs/dwz/
 Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	e72adeacdae79647f34f139f7957bcb1
+# Source0-md5:	69944ddd03b259eace1370e94e6dd955
 BuildRequires:	elfutils-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
