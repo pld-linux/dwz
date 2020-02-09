@@ -1,16 +1,16 @@
 Summary:	DWARF optimization and duplicate removal tool
+Summary(pl.UTF-8):	Narzędzie do optymalizacji DWARF i usuwania duplikatów
 Name:		dwz
-Version:	0.11
+Version:	0.13
 Release:	1
-License:	GPL v2+ and GPL v3+
+License:	GPL v2+ and GPL v3+ with GCC Runtime Library Exception v3.1
 Group:		Development/Tools
-# git archive --format=tar --remote=git://sourceware.org/git/dwz.git \
-#   --prefix=%{name}-%{version}/ %{name}-%{version} \
-#   | bzip2 -9 > %{name}-%{version}.tar.bz2
-# using fedora tarballs from http://pkgs.fedoraproject.org/repo/pkgs/dwz/
-Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	69944ddd03b259eace1370e94e6dd955
+Source0:	ftp://sourceware.org/pub/dwz/releases/%{name}-%{version}.tar.xz
+# Source0-md5:	6cb10dc92d432a5b86bc3fe36e154698
+URL:		http://www.sourceware.org/dwz/
 BuildRequires:	elfutils-devel
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -23,24 +23,31 @@ appendix E - creating DW_TAG_partial_unit compilation units (CUs) for
 duplicated information and using DW_TAG_imported_unit to import it
 into each CU that needs it.
 
+%description -l pl.UTF-8
+Pakiet dwz zawiera program próbujący zoptymalizować informacje DWARF
+dla debuggerów, zawarte w bibliotekach współdzielonych i plikach
+wykonywalnych ELF, pod kątem rozmiaru, zastępując reprezentację
+informacji DWARF równoważną o mniejszym rozmiarze oraz zmniejszając
+stopień duplikacji przy użyciu technik opisanych w załączniku E do
+standardu DWARF - poprzez tworzenie jednostek kompilacji (CU)
+DW_TAG_partial_unit dla informacji zduplikowanych oraz używanie
+DW_TAG_imported_unit do importowania ich w każdej CU, która ich
+wymaga.
+
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %build
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
-	prefix=%{_prefix} \
-	mandir=%{_mandir} \
-	bindir=%{_bindir} \
-	%{nil}
+	prefix=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	prefix=%{_prefix} \
-	mandir=%{_mandir} \
-	bindir=%{_bindir} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
