@@ -1,12 +1,12 @@
 Summary:	DWARF optimization and duplicate removal tool
 Summary(pl.UTF-8):	Narzędzie do optymalizacji DWARF i usuwania duplikatów
 Name:		dwz
-Version:	0.15
+Version:	0.16
 Release:	1
 License:	GPL v2+ and GPL v3+ with GCC Runtime Library Exception v3.1
 Group:		Development/Tools
 Source0:	ftp://sourceware.org/pub/dwz/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	d2867986d0df78bfbc22587628873fae
+# Source0-md5:	6edaa9ac7ea857ffd6b430cc0f70cc0b
 URL:		http://www.sourceware.org/dwz/
 BuildRequires:	elfutils-devel
 BuildRequires:	tar >= 1:1.22
