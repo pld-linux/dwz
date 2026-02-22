@@ -5,9 +5,9 @@ Version:	0.16
 Release:	1
 License:	GPL v2+ and GPL v3+ with GCC Runtime Library Exception v3.1
 Group:		Development/Tools
-Source0:	ftp://sourceware.org/pub/dwz/releases/%{name}-%{version}.tar.xz
+Source0:	https://sourceware.org/pub/dwz/releases/%{name}-%{version}.tar.xz
 # Source0-md5:	6edaa9ac7ea857ffd6b430cc0f70cc0b
-URL:		http://www.sourceware.org/dwz/
+URL:		https://www.sourceware.org/dwz/
 BuildRequires:	elfutils-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xxHash-devel
